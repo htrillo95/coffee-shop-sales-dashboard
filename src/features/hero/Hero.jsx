@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="hero">
       <h1 className="hero-title">Coffee Shop Sales Analysis</h1>
       <p className="hero-subtitle">
-        Analyzing 149,116 transactions from a NYC coffee shop to identify revenue patterns, 
+        Analyzing transactions from a NYC coffee shop to identify revenue patterns, 
         peak hours, and product performance.
       </p>
       <div className="hero-stats">

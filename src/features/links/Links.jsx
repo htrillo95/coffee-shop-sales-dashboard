@@ -3,7 +3,7 @@ export default function Links() {
     {
       label: "Live Excel Dashboard",
       href: "https://1drv.ms/x/c/2f1cf4eeb847817b/IQCf4B0CWCOsTaAIHBT3LrflAUuFsTVwGm9Q9_bEcLP1JGg?e=qbtYSa",
-      description: "Interactive dashboard with filters and charts"
+      description: "View the dashboard"
     },
     {
       label: "GitHub Repository",

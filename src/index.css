@@ -27,6 +27,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-primary);
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M30 15c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15-6.716-15-15-15zm0 5c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10z' fill='%238b6f47' fill-opacity='0.02'/%3E%3Cpath d='M45 25c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 3c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5z' fill='%238b6f47' fill-opacity='0.015'/%3E%3C/g%3E%3C/svg%3E");
   color: var(--text-primary);
   line-height: 1.6;
 }
@@ -76,19 +78,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 32px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  padding: 0;
+  background: transparent;
+  border: none;
+  transition: none;
   min-width: 140px;
-  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .stat:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 8px 24px var(--shadow-hover);
+  opacity: 0.7;
 }
 
 .stat-value {
@@ -143,68 +141,35 @@ section:last-of-type {
 .objectives-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 48px;
 }
 
 .objective-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  padding: 0;
+  transition: none;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 8px var(--shadow);
-}
-
-.objective-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.objective-card:hover {
-  border-color: var(--accent);
-  background: var(--bg-card-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px var(--shadow-hover);
-}
-
-.objective-card:hover::before {
-  transform: scaleX(1);
 }
 
 .objective-number {
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--accent);
-  opacity: 0.3;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   line-height: 1;
-  transition: opacity 0.3s ease;
-}
-
-.objective-card:hover .objective-number {
-  opacity: 0.5;
+  letter-spacing: 0.1em;
 }
 
 .objective-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
   color: var(--text-primary);
 }
 
 .objective-description {
   color: var(--text-secondary);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* Dashboard preview section */
@@ -324,11 +289,9 @@ section:last-of-type {
 
 /* Data Preview section */
 .data-preview {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 48px;
-  box-shadow: 0 2px 8px var(--shadow);
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .data-preview-description {
@@ -342,8 +305,7 @@ section:last-of-type {
 .data-preview-container {
   position: relative;
   width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: none;
   overflow: hidden;
   background: var(--bg-primary);
 }
@@ -356,10 +318,14 @@ section:last-of-type {
 }
 
 .data-preview-fallback {
-  display: none;
-  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
   text-align: center;
   color: var(--text-secondary);
+  min-height: 400px;
+  background: var(--bg-primary);
 }
 
 .data-preview-fallback a {
@@ -381,22 +347,17 @@ section:last-of-type {
 .link-button {
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  padding: 0;
+  background: transparent;
+  border: none;
   text-decoration: none;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: none;
   position: relative;
-  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .link-button:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow-hover);
-  background: var(--bg-card-hover);
+  opacity: 0.7;
 }
 
 .link-label {
