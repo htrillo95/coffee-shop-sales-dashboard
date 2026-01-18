@@ -1,4 +1,5 @@
 import Hero from './features/hero/Hero'
+import About from './features/about/About'
 import Objectives from './features/objectives/Objectives'
 import DashboardPreview from './features/dashboard-preview/DashboardPreview'
 import Insights from './features/insights/Insights'
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="app">
       <Hero />
+      <About />
       <Objectives />
       <DashboardPreview />
       <Insights />

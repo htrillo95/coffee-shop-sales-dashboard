@@ -122,7 +122,7 @@ section:last-of-type {
   margin-bottom: 48px;
   letter-spacing: -0.02em;
   position: relative;
-  display: inline-block;
+  display: block;
   color: var(--text-primary);
 }
 
@@ -135,6 +135,27 @@ section:last-of-type {
   height: 3px;
   background: var(--accent);
   border-radius: 2px;
+}
+
+/* About section */
+.about-content {
+  max-width: 700px;
+}
+
+.about-text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-text:last-child {
+  margin-bottom: 0;
+}
+
+.about-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* Objectives section */

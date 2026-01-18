@@ -12,12 +12,12 @@ export default function Hero() {
           <span className="stat-label">Transactions</span>
         </div>
         <div className="stat">
-          <span className="stat-value">NYC</span>
-          <span className="stat-label">Location</span>
+          <span className="stat-value">Jan - Jun 2023</span>
+          <span className="stat-label">Date Range</span>
         </div>
         <div className="stat">
-          <span className="stat-value">Maven Analytics</span>
-          <span className="stat-label">Dataset Source</span>
+          <span className="stat-value">NYC</span>
+          <span className="stat-label">Location</span>
         </div>
       </div>
     </section>
