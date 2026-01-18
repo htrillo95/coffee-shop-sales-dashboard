@@ -3,17 +3,17 @@ export default function Objectives() {
     {
       number: 1,
       title: "Prepare the data",
-      description: "Explored and profiled the dataset, performed basic QA, and created calculated fields for revenue, month, day of week, and hour extraction."
+      description: "Looked through the dataset, checked for issues, and added calculated fields for revenue and date parts like month and hour."
     },
     {
       number: 2,
       title: "Explore with PivotTables",
-      description: "Built pivot tables to analyze revenue by month, transaction patterns by weekday and hour, and product category performance."
+      description: "Used pivot tables to see revenue by month, transactions by time of day, and which product categories sell the most."
     },
     {
       number: 3,
-      title: "Build dynamic dashboard",
-      description: "Created an interactive Excel dashboard with pivot charts, store location slicers, and actionable insights for operations improvement."
+      title: "Build dashboard",
+      description: "Put together an Excel dashboard with charts showing revenue trends, transaction patterns, and product performance."
     }
   ]
 

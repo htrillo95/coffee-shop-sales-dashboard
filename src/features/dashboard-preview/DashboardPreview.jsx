@@ -29,12 +29,12 @@ export default function DashboardPreview() {
       <div className="screenshot-gallery">
         {screenshots.map((screenshot, index) => (
           <div key={index} className="screenshot-item">
-            <div className="screenshot-placeholder">
+            <div className="screenshot-image-wrapper">
               <img 
                 src={screenshot.src} 
                 alt={screenshot.alt}
+                className="screenshot-image"
                 onError={(e) => {
-                  // Fallback to placeholder if image doesn't exist
                   e.target.style.display = 'none'
                   e.target.nextSibling.style.display = 'flex'
                 }}
@@ -43,7 +43,10 @@ export default function DashboardPreview() {
                 <span>Placeholder: {screenshot.caption}</span>
               </div>
             </div>
-            <p className="screenshot-caption">{screenshot.caption}</p>
+            <div className="screenshot-meta">
+              <span className="screenshot-number">{String(index + 1).padStart(2, '0')}</span>
+              <p className="screenshot-caption">{screenshot.caption}</p>
+            </div>
           </div>
         ))}
       </div>

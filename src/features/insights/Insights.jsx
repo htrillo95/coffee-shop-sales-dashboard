@@ -1,20 +1,19 @@
 export default function Insights() {
-  const insights = [
-    "Revenue peaks in March and April, then declines through summer—suggesting seasonal demand patterns that could inform inventory planning and promotional timing.",
-    "Weekday transactions are 40% higher than weekends, with Tuesday–Thursday showing the strongest volume. This indicates a strong commuter customer base.",
-    "Peak transaction hours are 7–9 AM and 12–2 PM, aligning with breakfast and lunch rushes. Staffing and inventory should be optimized for these windows.",
-    "Coffee products drive 65% of transactions, but pastries and sandwiches have higher average order values. Cross-selling opportunities exist to boost revenue per transaction.",
-    "Store location #3 underperforms compared to locations #1 and #2 in both transaction volume and revenue per transaction—warrants investigation into foot traffic, visibility, or operational differences.",
-    "The top 15 products account for 78% of total revenue, indicating a long tail of low-performing SKUs that could be rationalized to simplify operations and reduce waste."
+  const takeaways = [
+    "Learned how to use PivotTables to summarize 149k rows of data, way easier than manually counting.",
+    "Built calculated fields for revenue (price × quantity) and extracted date/time parts. Making use of Excel formulas.",
+    "Made pivot charts to visualize revenue trends, transaction patterns, and product performance. Charts make the data way easier to understand.",
+    "Most transactions happen weekday mornings (7 to 9 AM) and lunch (12 to 2 PM). Coffee is the biggest seller, which makes sense.",
+    "This was good practice for cleaning data, building dashboards, and thinking about what the numbers actually mean."
   ]
 
   return (
     <section className="insights">
-      <h2 className="section-title">Insights & Recommendations</h2>
+      <h2 className="section-title">What I Learned</h2>
       <ul className="insights-list">
-        {insights.map((insight, index) => (
+        {takeaways.map((item, index) => (
           <li key={index} className="insight-item">
-            {insight}
+            {item}
           </li>
         ))}
       </ul>

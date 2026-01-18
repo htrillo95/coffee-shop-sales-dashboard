@@ -12,7 +12,7 @@ export default function Links() {
     },
     {
       label: "Dataset Source",
-      href: "#", // Placeholder - user will update
+      href: "https://docs.google.com/spreadsheets/d/1qDdqc0pxgzMPDhs6fFiE5AuWRY61hPpj/edit?usp=sharing&ouid=116278146157712374466&rtpof=true&sd=true",
       description: "Maven Analytics Coffee Shop Sales dataset"
     }
   ]
