@@ -1,4 +1,15 @@
-export default function Hero() {
+export default function Hero({ kpis, loading }) {
+  // Format numbers for display
+  const formatNumber = (num) => {
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M'
+    if (num >= 1000) return (num / 1000).toFixed(0) + 'k'
+    return num.toLocaleString()
+  }
+
+  const formatCurrency = (num) => {
+    return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })
+  }
+
   return (
     <section className="hero">
       <h1 className="hero-title">Coffee Shop Sales Analysis</h1>
@@ -8,16 +19,22 @@ export default function Hero() {
       </p>
       <div className="hero-stats">
         <div className="stat">
-          <span className="stat-value">149,116</span>
+          <span className="stat-value">
+            {loading ? '...' : formatNumber(kpis?.totalTransactions || 149116)}
+          </span>
           <span className="stat-label">Transactions</span>
         </div>
         <div className="stat">
-          <span className="stat-value">Jan - Jun 2023</span>
-          <span className="stat-label">Date Range</span>
+          <span className="stat-value">
+            {loading ? '...' : formatCurrency(kpis?.totalRevenue || 698812)}
+          </span>
+          <span className="stat-label">Total Revenue</span>
         </div>
         <div className="stat">
-          <span className="stat-value">NYC</span>
-          <span className="stat-label">Location</span>
+          <span className="stat-value">
+            {loading ? '...' : formatCurrency(kpis?.avgRevenuePerTransaction || 4.69)}
+          </span>
+          <span className="stat-label">Avg per Transaction</span>
         </div>
       </div>
     </section>

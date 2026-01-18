@@ -105,6 +105,41 @@ body {
   font-weight: 500;
 }
 
+/* Filter section */
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.filter-select {
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filter-select:hover {
+  border-color: var(--accent);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
 /* Section styles */
 section {
   padding: 80px 0;
@@ -323,19 +358,81 @@ section:last-of-type {
   max-width: 700px;
 }
 
-.data-preview-container {
-  position: relative;
-  width: 100%;
-  border: none;
-  overflow: hidden;
-  background: var(--bg-primary);
+.data-preview-kpis {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
-.data-preview-iframe {
+.data-preview-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.data-preview-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.data-preview-kpi-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.data-preview-table-container {
   width: 100%;
-  height: 600px;
-  border: none;
-  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.data-preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-preview-table thead {
+  background: var(--bg-secondary);
+  position: sticky;
+  top: 0;
+}
+
+.data-preview-table th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.data-preview-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.data-preview-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.data-preview-loading,
+.data-preview-empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-secondary);
 }
 
 .data-preview-fallback {
