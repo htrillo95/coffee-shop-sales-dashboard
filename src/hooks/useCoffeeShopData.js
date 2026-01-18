@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { calculateKPIs } from '../utils/calculateKPIs'
 
 /**
  * Custom hook to load and filter coffee shop sales data
@@ -7,6 +8,7 @@ import { useState, useEffect, useMemo } from 'react'
 export function useCoffeeShopData() {
   const [rawData, setRawData] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [selectedStore, setSelectedStore] = useState('All')
 
   // Load and parse CSV once on mount
@@ -48,8 +50,9 @@ export function useCoffeeShopData() {
         
         setRawData(data)
         setLoading(false)
-      } catch (error) {
-        console.error('Error loading CSV:', error)
+      } catch (err) {
+        console.error('Error loading CSV:', err)
+        setError('Failed to load data. Please refresh the page.')
         setLoading(false)
       }
     }
@@ -73,36 +76,7 @@ export function useCoffeeShopData() {
 
   // Compute KPIs from filtered data (memoized)
   const kpis = useMemo(() => {
-    if (filteredData.length === 0) {
-      return {
-        totalTransactions: 0,
-        totalRevenue: 0,
-        avgRevenuePerTransaction: 0
-      }
-    }
-
-    const totalTransactions = filteredData.length
-    const totalRevenue = filteredData.reduce((sum, row) => {
-      // Handle both "Revenue" (capital R) and "revenue" (lowercase) columns
-      // Also handle currency format like "$6.00" by removing $ and parsing
-      let revenue = parseFloat(row.Revenue) || parseFloat(row.revenue)
-      if (isNaN(revenue)) {
-        const revenueStr = (row.Revenue || row.revenue || '').toString().replace(/[$,]/g, '')
-        revenue = parseFloat(revenueStr)
-      }
-      // Fallback to calculating from unit_price × transaction_qty
-      if (isNaN(revenue) || revenue === 0) {
-        revenue = (parseFloat(row.unit_price) || 0) * (parseInt(row.transaction_qty) || 0)
-      }
-      return sum + (revenue || 0)
-    }, 0)
-    const avgRevenuePerTransaction = totalRevenue / totalTransactions
-
-    return {
-      totalTransactions,
-      totalRevenue,
-      avgRevenuePerTransaction
-    }
+    return calculateKPIs(filteredData)
   }, [filteredData])
 
   return {
@@ -112,6 +86,7 @@ export function useCoffeeShopData() {
     storeLocations,
     selectedStore,
     setSelectedStore,
-    loading
+    loading,
+    error
   }
 }

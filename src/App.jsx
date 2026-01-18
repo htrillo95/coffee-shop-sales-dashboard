@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useCoffeeShopData } from './hooks/useCoffeeShopData'
+import { calculateKPIs } from './utils/calculateKPIs'
 import Hero from './features/hero/Hero'
 import Filter from './features/filter/Filter'
 import About from './features/about/About'
@@ -11,7 +12,7 @@ import Links from './features/links/Links'
 import Footer from './features/footer/Footer'
 
 function App() {
-  const { kpis, storeLocations, selectedStore, setSelectedStore, loading, filteredData, rawData } = useCoffeeShopData()
+  const { kpis, storeLocations, selectedStore, setSelectedStore, loading, filteredData, rawData, error } = useCoffeeShopData()
   
   // Use overall KPIs (from all data) for hero, not filtered
   const overallKpis = useMemo(() => {
@@ -22,26 +23,7 @@ function App() {
         avgRevenuePerTransaction: 4.69
       }
     }
-    
-    const totalTransactions = rawData.length
-    const totalRevenue = rawData.reduce((sum, row) => {
-      let revenue = parseFloat(row.Revenue) || parseFloat(row.revenue)
-      if (isNaN(revenue)) {
-        const revenueStr = (row.Revenue || row.revenue || '').toString().replace(/[$,]/g, '')
-        revenue = parseFloat(revenueStr)
-      }
-      if (isNaN(revenue) || revenue === 0) {
-        revenue = (parseFloat(row.unit_price) || 0) * (parseInt(row.transaction_qty) || 0)
-      }
-      return sum + (revenue || 0)
-    }, 0)
-    const avgRevenuePerTransaction = totalRevenue / totalTransactions
-    
-    return {
-      totalTransactions,
-      totalRevenue,
-      avgRevenuePerTransaction
-    }
+    return calculateKPIs(rawData)
   }, [rawData])
 
   return (
@@ -58,6 +40,7 @@ function App() {
         filteredData={filteredData} 
         loading={loading}
         kpis={kpis}
+        error={error}
         filterComponent={
           <Filter 
             storeLocations={storeLocations}
