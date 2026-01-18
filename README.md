@@ -1,32 +1,24 @@
 # Coffee Shop Sales Dashboard
 
-A portfolio case study analyzing 149,116 transactions from a NYC coffee shop. This project demonstrates data analysis, visualization, and dashboard development skills.
+A portfolio case study analyzing 149,116 transactions from a NYC coffee shop.
 
 ## Project Overview
 
-This project is based on the Maven Analytics "Coffee Shop Sales" dataset and is organized into three objectives:
+This project is based on the Maven Analytics Coffee Shop Sales dataset and is organized into three objectives:
 
-1. **Prepare the data for analysis** - Data exploration, profiling, and calculated field creation
-2. **Explore the data with PivotTables** - Revenue analysis, transaction patterns, and product performance
-3. **Build a dynamic dashboard** - Interactive Excel dashboard with charts, filters, and insights
+1. Prepare the data for analysis
+2. Explore the data with PivotTables
+3. Build a dynamic dashboard
 
 ## Tech Stack
 
-- React 18
-- Vite
-- JavaScript (no TypeScript)
-- Plain CSS (no UI libraries)
+React 18, Vite, JavaScript, CSS
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-
-# Build for production
 npm run build
 ```
 
@@ -35,34 +27,31 @@ npm run build
 ```
 src/
   features/
-    hero/           # Hero section with title and stats
-    objectives/     # Three objective cards
-    dashboard-preview/  # Screenshot gallery
-    insights/       # Insights & recommendations
-    links/          # External links section
-    v2-plan/        # Collapsible v2 plan section
-    footer/         # Footer component
-  App.jsx           # Main app component
-  main.jsx          # Entry point
-  index.css         # Global styles
+    hero/
+    about/
+    objectives/
+    dashboard-preview/
+    insights/
+    data-preview/
+    links/
+    footer/
+  hooks/
+    useCoffeeShopData.js
+  utils/
+    calculateKPIs.js
+  App.jsx
+  main.jsx
+  index.css
 ```
 
-## Adding Screenshots
+## CSV Data
 
-Drop your dashboard screenshots into `/public/images/` with these filenames:
-- `dashboard-overview.png`
-- `revenue-by-month.png`
-- `transactions-by-time.png`
-- `product-categories.png`
+Place your cleaned CSV file at `/public/coffee_shop_sales.csv`. The file should include calculated fields like Revenue, Month, Weekday, and Hour.
 
-## Updating Links
+## Screenshots
 
-Edit `/src/features/links/Links.jsx` to update the placeholder hrefs for:
-- Live Excel Dashboard
-- GitHub Repository
-- Dataset Source
-
-## Future Enhancements (v2)
-
-- Load CSV locally and render charts in React
-- Add store location filter with client-side metric recomputation
+Drop dashboard screenshots into `/public/images/`:
+- dashboard-overview.png
+- revenue-by-month.png
+- transactions-by-time.png
+- product-categories.png
